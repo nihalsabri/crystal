@@ -12,11 +12,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        {/* <Calculator />
+        <Calculator />
         <Steps />
-        <Features /> */}
+        <Features />
       </main>
-      {/* <Footer /> */}
+      <Footer />
       <WhatsAppFloat />
     </>
   );

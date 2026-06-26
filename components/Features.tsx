@@ -1,218 +1,238 @@
+
 "use client";
 
 const features = [
   {
-    icon: <HandCoinsIcon />,
     title: "مبالغ مرنة",
     desc: "من 200 إلى 30,000 ريال",
+    bgColor: "#dcfce7", // emerald-100
+    iconColor: "#059669", // emerald-600
+    svgIcon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path>
+        <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"></path>
+        <path d="m2 16 6 6"></path>
+        <circle cx="16" cy="9" r="2.9"></circle>
+        <circle cx="6" cy="5" r="3"></circle>
+      </svg>
+    ),
   },
   {
-    icon: "⚡",
     title: "تحويل فوري",
     desc: "استلام المبلغ خلال دقائق",
+    bgColor: "#dbeafe", // sky-100
+    iconColor: "#0284c7", // sky-600
+    svgIcon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+      </svg>
+    ),
   },
   {
-    icon: "🔒",
     title: "آمن 100٪",
     desc: "معاملات موثوقة وسرية",
+    bgColor: "#fef3c7", // amber-100
+    iconColor: "#d97706", // amber-600
+    svgIcon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+        <path d="m9 12 2 2 4-4"></path>
+      </svg>
+    ),
   },
   {
-    icon: "📅",
     title: "تقسيط مريح",
     desc: "حتى 24 دفعة مع تابي وتمارا",
+    bgColor: "#f3e8ff", // violet-100
+    iconColor: "#9333ea", // violet-600
+    svgIcon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M8 2v4"></path>
+        <path d="M16 2v4"></path>
+        <path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"></path>
+        <path d="M3 10h18"></path>
+        <path d="m16 20 2 2 4-4"></path>
+      </svg>
+    ),
   },
 ];
 
 export default function Features() {
   return (
     <>
-      {/* CTA Banner */}
-      <section
-        style={{
-          padding: "3rem 1.5rem",
-          maxWidth: 1200,
-          margin: "0 auto",
-        }}
-      >
-        <div
-          style={{
-            background: "linear-gradient(135deg, #1a2e5a 0%, #2a4080 100%)",
-            borderRadius: 24,
-            padding: "clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem)",
-            textAlign: "center",
-            color: "#fff",
-            boxShadow: "0 8px 40px rgba(26, 46, 90, 0.3)",
-          }}
-        >
-          <h2
-            style={{
-              fontFamily: "Cairo, sans-serif",
-              fontWeight: 900,
-              fontSize: "clamp(1.4rem, 3vw, 2rem)",
-              marginBottom: "0.75rem",
-            }}
-          >
-            جاهز لطلب سلفتك؟
-          </h2>
-          <p
-            style={{
-              fontFamily: "Tajawal, sans-serif",
-              fontSize: 16,
-              opacity: 0.8,
-              marginBottom: "2rem",
-            }}
-          >
-            تواصل معنا الآن واستلم المبلغ خلال دقائق
-          </p>
-          <a
-            href="https://wa.me/966530162235"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 10,
-              background: "#25D366",
-              color: "#fff",
-              padding: "14px 32px",
-              borderRadius: 14,
-              fontFamily: "Cairo, sans-serif",
-              fontWeight: 800,
-              fontSize: 17,
-              textDecoration: "none",
-              transition: "all 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "#1da851";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "#25D366";
-              (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-            تواصل عبر الواتساب
-          </a>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section
         id="features"
         style={{
-          padding: "3rem 1.5rem 5rem",
-          maxWidth: 1200,
-          margin: "0 auto",
+          padding: "2rem 1.5rem",
+          background: "#f9fcff",
         }}
       >
-        <h2
-          style={{
-            textAlign: "center",
-            fontFamily: "Cairo, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(1.4rem, 3vw, 2rem)",
-            color: "#1a2e5a",
-            marginBottom: "0.5rem",
-          }}
-        >
-          لماذا تختارنا؟
-        </h2>
-        <p
-          style={{
-            textAlign: "center",
-            fontFamily: "Tajawal, sans-serif",
-            fontSize: 15,
-            color: "#6b7a99",
-            marginBottom: "2.5rem",
-          }}
-        >
-          مميزات تجعل تجربتك أسهل وأسرع
-        </p>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "1.25rem",
-          }}
-          className="features-grid"
-        >
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="card-hover"
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
+            <h2
               style={{
-                background: "#fff",
-                borderRadius: 18,
-                padding: "2rem 1.5rem",
-                textAlign: "center",
-                border: "1.5px solid #e2eaf5",
-                boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+                fontFamily: "Cairo, sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                color: "#0f172a",
+                marginBottom: "0.5rem",
               }}
             >
-              <div style={{ fontSize: 36, marginBottom: "1rem" }}>{f.icon}</div>
-              <h3
+              لماذا تختارنا؟
+            </h2>
+            <p
+              style={{
+                fontFamily: "Tajawal, sans-serif",
+                fontSize: 16,
+                color: "#64748b",
+                marginTop: "0.5rem",
+              }}
+            >
+              مميزات تجعل تجربتك أسهل وأسرع
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: "1rem",
+            }}
+            className="features-grid"
+          >
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                className="feature-card group"
                 style={{
-                  fontFamily: "Cairo, sans-serif",
-                  fontWeight: 800,
-                  fontSize: 17,
-                  color: "#1a2e5a",
-                  marginBottom: "0.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "1rem",
+                  background: "#fff",
+                  borderRadius: 16,
+                  border: "1.5px solid #e2eaf5",
+                  padding: "1.5rem",
+                  textAlign: "center",
+                  transition: "all 0.2s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "#22d3ee";
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "#e2eaf5";
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
                 }}
               >
-                {f.title}
-              </h3>
-              <p
-                style={{
-                  fontFamily: "Tajawal, sans-serif",
-                  fontSize: 14,
-                  color: "#6b7a99",
-                }}
-              >
-                {f.desc}
-              </p>
-            </div>
-          ))}
+                {/* Icon Circle */}
+                <div
+                  style={{
+                    width: 56,
+                    height: 56,
+                    borderRadius: "50%",
+                    background: feature.bgColor,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: feature.iconColor,
+                    transition: "transform 0.2s ease",
+                  }}
+                >
+                  {feature.svgIcon}
+                </div>
+
+                {/* Content */}
+                <div style={{ minWidth: 0 }}>
+                  <h3
+                    style={{
+                      fontFamily: "Cairo, sans-serif",
+                      fontWeight: 700,
+                      fontSize: 18,
+                      color: "#1e293b",
+                      marginBottom: "0.375rem",
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "Tajawal, sans-serif",
+                      fontSize: 16,
+                      color: "#64748b",
+                      margin: 0,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {feature.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
+        {/* Responsive Styles */}
         <style>{`
-          @media (max-width: 900px) {
+          @media (max-width: 1024px) {
             .features-grid {
               grid-template-columns: repeat(2, 1fr) !important;
             }
           }
-          @media (max-width: 480px) {
+          @media (max-width: 640px) {
             .features-grid {
               grid-template-columns: 1fr 1fr !important;
+              gap: 0.75rem !important;
+            }
+            .feature-card {
+              padding: 1.25rem 1rem !important;
             }
           }
         `}</style>
       </section>
     </>
-  );
-}
-function HandCoinsIcon() {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="24" 
-      height="24" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2.2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-      className="size-6 text-emerald-600"
-    >
-      <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
-      <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
-      <path d="m2 16 6 6" />
-      <circle cx="16" cy="9" r="2.9" />
-      <circle cx="6" cy="5" r="3" />
-    </svg>
   );
 }

@@ -87,7 +87,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Left Side: Interactive Credit Card */}
     {/* Left Side: Interactive Credit Card */}
 <div className="card-side">
   {/* Background Glow Behind Card */}
@@ -398,7 +397,6 @@ export default function Hero() {
         }
 
         /* Left Side Card Elements */
-        /* Left Side Card Elements */
 .card-side {
   position: relative;
   display: flex;
@@ -452,14 +450,14 @@ export default function Hero() {
   .soft-card-wrapper { padding: 2rem; }
 }
 
-.right-overlay {
-  pointer-events: none;
-  position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: 60%;
-  background: linear-gradient(to left, rgba(37,99,210,0.6) 0%, rgba(37,99,210,0.25) 50%, transparent 100%);
-  z-index: 0;
-} 
+// .right-overlay {
+//   pointer-events: none;
+//   position: absolute;
+//   top: 0; right: 0; bottom: 0;
+//   width: 60%;
+//   background: linear-gradient(to left, rgba(37,99,210,0.6) 0%, rgba(37,99,210,0.25) 50%, transparent 100%);
+//   z-index: 0;
+// } 
 
 .circle-decor-top,
 .circle-decor-bottom,
@@ -487,120 +485,123 @@ export default function Hero() {
 
 .brand-gradient-card {
   position: relative;
-  overflow: hidden;
-  border-radius: 1rem; /* rounded-2xl */
-  background: linear-gradient(135deg, #0f1d42 0%, #1e40af 50%, #0891b2 100%);
-  padding: 1.5rem; /* p-6 */
-  color: #ffffff;
-}
+    overflow: hidden;
+      border-radius: 1rem; /* rounded-2xl */
 
-@media (min-width: 640px) {
-  .brand-gradient-card {
-    padding: 1.5rem; /* sm:p-6 */
-  }
-}
+          background: linear-gradient(135deg, #0b267d 0%, #1a3a7a 25%, #2043a3 50%, #0758a3 62.5%, #1a5f8a 75%, #008d9a 100%);
 
-// .circle-decor-top {
-//   pointer-events: none;
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   height: 8rem; /* h-32 = 128px */
-//   width: 8rem; /* w-32 = 128px */
-//   transform: translate(33.33%, -33.33%); /* translate-x-1/3 -translate-y-1/3 */
-//   border-radius: 50%;
-//   background-color: #ecfeff rgba(103, 232, 249, 0.15); /* bg-white/15 */
-//   filter: blur(20px); /* blur-2xl */
-// }
+            /* background: linear-gradient(135deg, #0f1d42 0%, #1e40af 50%, #0891b2 100%); */
+              padding: 1.5rem; /* p-6 */
+                color: #ffffff;
+                }
 
-// .circle-decor-bottom {
-//   pointer-events: none;
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   height: 6rem; /* h-24 = 96px */
-//   width: 6rem; /* w-24 = 96px */
-//   transform: translate(-25%, 25%); /* -translate-x-1/4 translate-y-1/4 */
-//   border-radius: 50%;
-//   background-color: rgba(103, 232, 249, 0.3); /* bg-cyan-300/30 */
-//   filter: blur(20px); /* blur-2xl */
-// }
+                @media (min-width: 640px) {
+                  .brand-gradient-card {
+                      padding: 1.5rem; /* sm:p-6 */
+                        }
+                        }
 
-.card-header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem; /* mb-3 */
-}
+                        // .circle-decor-top {
+                        //   pointer-events: none;
+                        //   position: absolute;
+                        //   top: 0;
+                        //   right: 0;
+                        //   height: 8rem; /* h-32 = 128px */
+                        //   width: 8rem; /* w-32 = 128px */
+                        //   transform: translate(33.33%, -33.33%); /* translate-x-1/3 -translate-y-1/3 */
+                        //   border-radius: 50%;
+                        //   background-color: #ecfeff rgba(103, 232, 249, 0.15); /* bg-white/15 */
+                        //   filter: blur(20px); /* blur-2xl */
+                        // }
 
-.card-title {
-  display: block;
-  font-family: "Tajawal", sans-serif;
-  font-size: 0.875rem; /* text-sm */
-  color: rgba(255, 255, 255, 0.8); /* text-white/80 */
-  font-weight: 400;
-}
+                        // .circle-decor-bottom {
+                        //   pointer-events: none;
+                        //   position: absolute;
+                        //   bottom: 0;
+                        //   left: 0;
+                        //   height: 6rem; /* h-24 = 96px */
+                        //   width: 6rem; /* w-24 = 96px */
+                        //   transform: translate(-25%, 25%); /* -translate-x-1/4 translate-y-1/4 */
+                        //   border-radius: 50%;
+                        //   background-color: rgba(103, 232, 249, 0.3); /* bg-cyan-300/30 */
+                        //   filter: blur(20px); /* blur-2xl */
+                        // }
 
-.wallet-icon-box {
-  display: inline-flex;
-  width: 2.25rem; /* size-9 = 36px */
-  height: 2.25rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem; /* rounded-xl */
-  background-color: rgba(255, 255, 255, 0.15); /* bg-white/15 */
-  backdrop-filter: blur(4px); /* backdrop-blur-sm */
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2); /* ring-1 ring-white/20 */
-}
+                        .card-header-row {
+                          display: flex;
+                            align-items: center;
+                              justify-content: space-between;
+                                margin-bottom: 0.75rem; /* mb-3 */
+                                }
 
-.wallet-icon-box svg {
-  width: 1.25rem; /* size-5 = 20px */
-  height: 1.25rem;
-}
+                                .card-title {
+                                  display: block;
+                                    font-family: "Tajawal", sans-serif;
+                                      font-size: 0.875rem; /* text-sm */
+                                        color: rgba(255, 255, 255, 0.8); /* text-white/80 */
+                                          font-weight: 400;
+                                          }
 
-.amount-display-box {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem; /* gap-2 */
-  margin-bottom: 0.25rem; /* mb-1 */
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.025em; /* tracking-tight */
-}
+                                          .wallet-icon-box {
+                                            display: inline-flex;
+                                              width: 2.25rem; /* size-9 = 36px */
+                                                height: 2.25rem;
+                                                  align-items: center;
+                                                    justify-content: center;
+                                                      border-radius: 0.75rem; /* rounded-xl */
+                                                        background-color: rgba(255, 255, 255, 0.15); /* bg-white/15 */
+                                                          backdrop-filter: blur(4px); /* backdrop-blur-sm */
+                                                            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2); /* ring-1 ring-white/20 */
+                                                            }
 
-.amount-value {
-  font-family: "Cairo", sans-serif;
-  font-size: 2.25rem; /* text-4xl */
-  font-weight: 700; /* font-bold */
-  color: #ffffff;
-}
+                                                            .wallet-icon-box svg {
+                                                              width: 1.25rem; /* size-5 = 20px */
+                                                                height: 1.25rem;
+                                                                }
 
-.currency-label {
-  font-family: "Tajawal", sans-serif;
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 400; /* font-normal */
-  color: rgba(255, 255, 255, 0.7); /* text-white/70 */
-}
+                                                                .amount-display-box {
+                                                                  display: flex;
+                                                                    align-items: baseline;
+                                                                      gap: 0.5rem; /* gap-2 */
+                                                                        margin-bottom: 0.25rem; /* mb-1 */
+                                                                          font-variant-numeric: tabular-nums;
+                                                                            letter-spacing: -0.025em; /* tracking-tight */
+                                                                            }
 
-.slider-container {
-  position: relative;
-  margin-top: 1.25rem; /* mt-5 */
-}
+                                                                            .amount-value {
+                                                                              font-family: "Cairo", sans-serif;
+                                                                                font-size: 2.25rem; /* text-4xl */
+                                                                                  font-weight: 700; /* font-bold */
+                                                                                    color: #ffffff;
+                                                                                    }
 
-.slider-track-bg {
-  pointer-events: none;
-  height: 0.375rem; /* h-1.5 = 6px */
-  width: 100%;
-  overflow: hidden;
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.2); /* bg-white/20 */
-}
+                                                                                    .currency-label {
+                                                                                      font-family: "Tajawal", sans-serif;
+                                                                                        font-size: 1.125rem; /* text-lg */
+                                                                                          font-weight: 400; /* font-normal */
+                                                                                            color: rgba(255, 255, 255, 0.7); /* text-white/70 */
+                                                                                            }
 
-.slider-track-fill {
-  height: 100%;
-  border-radius: 9999px;
-  background-color: #67e8f9; /* bg-cyan-300 */
-  transition: width 0.15s ease; /* transition-[width] duration-150 */
-}
+                                                                                            .slider-container {
+                                                                                              position: relative;
+                                                                                                margin-top: 1.25rem; /* mt-5 */
+                                                                                                }
+
+                                                                                                .slider-track-bg {
+                                                                                                  pointer-events: none;
+                                                                                                    height: 0.375rem; /* h-1.5 = 6px */
+                                                                                                      width: 100%;
+                                                                                                        overflow: hidden;
+                                                                                                          border-radius: 9999px;
+                                                                                                            background-color: rgba(255, 255, 255, 0.2); /* bg-white/20 */
+                                                                                                            }
+
+                                                                                                            .slider-track-fill {
+                                                                                                              height: 100%;
+                                                                                                                border-radius: 9999px;
+                                                                                                                  background-color: #67e8f9; /* bg-cyan-300 */
+                                                                                                                    transition: width 0.15s ease; /* transition-[width] duration-150 */
+                                                                                                                    }
 
 .slider-thumb-custom {
   pointer-events: none;

@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "#fff",
+        background: "#f9fcff",
         borderTop: "1px solid #e2eaf5",
         padding: "2rem 1.5rem",
       }}
@@ -15,37 +15,11 @@ export default function Footer() {
         }}
       >
         {/* Logo */}
-        <div style={{ marginBottom: "1rem" }}>
-          <div
-            style={{
-              fontFamily: "Cairo, sans-serif",
-              fontWeight: 900,
-              fontSize: 22,
-              color: "#1a2e5a",
-              lineHeight: 1.1,
-            }}
-          >
-            كريستال
-          </div>
-          <div
-            style={{
-              fontFamily: "Arial, sans-serif",
-              fontWeight: 800,
-              fontSize: 12,
-              letterSpacing: "3px",
-              color: "#1a2e5a",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 3,
-            }}
-          >
-            <span style={{ color: "#00bcd4" }}>◈</span>
-            CRYSTAL
-          </div>
-        </div>
-
-        <p
+        <div style={{ marginBottom: "1rem" ,  display: "flex", justifyContent: "space-between", alignItems: "center",
+}}>
+      
+          <img src="/crystal-logo-CyiVii2I.webp" alt="Crystal Logo" style={{ width: 120, height: "auto" }} />
+          <p
           style={{
             fontFamily: "Tajawal, sans-serif",
             fontSize: 14,
@@ -54,6 +28,9 @@ export default function Footer() {
         >
           © 2026 كريستال. جميع الحقوق محفوظة.
         </p>
+        </div>
+
+        
 
         {/* Hidden SEO text */}
         <div
