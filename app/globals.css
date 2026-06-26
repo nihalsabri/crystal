@@ -1,0 +1,112 @@
+:root {
+  --background: #f0f7ff;
+  --foreground: #0f1f3d;
+  --navy: #1a2e5a;
+  --navy-dark: #0f1f3d;
+  --teal: #00bcd4;
+  --teal-light: #4dd0e1;
+  --card-bg: #ffffff;
+  --border: #e2eaf5;
+  --text-muted: #6b7a99;
+  --whatsapp: #25D366;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 30%, #e0f0fb 60%, #daeefa 100%);
+  min-height: 100vh;
+  color: var(--navy-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #e2eaf5;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  height: 6px;
+  border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #00bcd4;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #00bcd4;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f7ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #00bcd4;
+  border-radius: 3px;
+}
+
+/* WhatsApp float button pulse */
+@keyframes pulse-whatsapp {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-float {
+  animation: pulse-whatsapp 2s infinite;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Slider fill gradient */
+.slider-container {
+  position: relative;
+}
+
+.btn-navy {
+  background-color: #1a2e5a;
+}
