@@ -1,3 +1,4 @@
+
 "use client";
 import { useState, useRef, useEffect } from "react";
 
@@ -13,6 +14,14 @@ const PURCHASE_FACTOR: Record<number, number> = {
   24: 2.4,
 };
 
+// نسبة رسوم المرابحة لكل عدد دفعات
+const MURABAHA_RATE: Record<number, number> = {
+  6: 0.047,
+  9: 0.075,
+  12: 0.10,
+  24: 0.18,
+};
+
 function fmt(n: number) {
   return n.toLocaleString("en-US");
 }
@@ -25,6 +34,9 @@ function calcResults(amount: number, installments: number) {
   const factor = PURCHASE_FACTOR[installments] ?? 1.5974545;
   const purchasePrice = Math.round(amount * factor);
   const salePrice = Math.round(amount * 0.9999 * 10) / 10;
+  const murabahaFee = installments > 4
+    ? -Math.round(salePrice * (MURABAHA_RATE[installments] ?? 0.047))
+    : 0;
   const firstPayment = Math.ceil(purchasePrice / installments);
   const monthlyInstallment =
     installments === 1
@@ -38,6 +50,7 @@ function calcResults(amount: number, installments: number) {
   return {
     purchasePrice,
     salePrice,
+    murabahaFee,
     firstPayment,
     monthlyInstallment,
     remainingInstallments,
@@ -54,6 +67,9 @@ export default function Calculator() {
 
   const results = calcResults(amount, selectedInstallments);
   const percent = ((amount - MIN) / (MAX - MIN)) * 100;
+  const murabahaRatePct = selectedInstallments > 4
+    ? ((MURABAHA_RATE[selectedInstallments] ?? 0.047) * 100).toFixed(1)
+    : null;
 
   const transferAmount =
     activeTab === "alayk" ? results.transferAlayk : results.transferAlaina;
@@ -63,6 +79,24 @@ export default function Calculator() {
       sliderRef.current.style.background = `linear-gradient(to right, #00bcd4 ${percent}%, #e2eaf5 ${percent}%)`;
     }
   }, [percent]);
+
+  // صفوف الـ results grid — تتغير حسب عدد الدفعات
+  const resultRows = selectedInstallments > 4
+    ? [
+        { label: "مبلغ الشراء",   value: `${fmt(results.purchasePrice)} ر.س` },
+        { label: "مبلغ البيع",    value: `${fmtDecimal(results.salePrice)} ر.س` },
+        {
+          label: `رسوم مرابحة تمارا (${murabahaRatePct}%)`,
+          sublabel: "(قد تختلف بناء على سجلك الائتماني)",
+          value: `${fmt(results.murabahaFee)} ر.س`,
+        },
+        { label: "الدفعة الأولى", value: `${fmt(results.firstPayment)} ر.س` },
+      ]
+    : [
+        { label: "مبلغ الشراء",   value: `${fmt(results.purchasePrice)} ر.س` },
+        { label: "مبلغ البيع",    value: `${fmtDecimal(results.salePrice)} ر.س` },
+        { label: "الدفعة الأولى", value: `${fmt(results.firstPayment)} ر.س` },
+      ];
 
   return (
     <>
@@ -122,16 +156,78 @@ export default function Calculator() {
           background: transparent;
           color: #6b7a99;
         }
-        .installment-btn {
-          transition: all 0.18s ease;
-        }
-        .cta-btn {
-          transition: background 0.2s, transform 0.1s;
-        }
-        .cta-btn:hover {
-          background: #0f1f3d !important;
-          transform: translateY(-1px);
-        }
+        // .installments-row {
+        //   display: flex;
+        //   gap: 0.5rem;
+        //   flex-wrap: wrap;
+        // }
+        // .installment-btn {
+        //   flex: 1 1 auto;
+        //   min-width: 0;
+        //   height: 42px;
+        //   border-radius: 20px;
+        //   font-family: Cairo, sans-serif;
+        //   font-weight: 700;
+        //   font-size: 16px;
+        //   cursor: pointer;
+        //   transition: all 0.18s ease;
+        //   white-space: nowrap;
+        // }
+        // @media (max-width: 480px) {
+        //   .installment-btn { font-size: 14px; height: 38px; }
+        // }
+//         .installments-row {
+//   display: flex;
+//   gap: 0.6rem;
+//   flex-wrap: wrap;
+//   direction: rtl;
+//   justify-content: flex-start;
+// }
+
+.installment-btn {
+          // flex: 1 1 auto;
+          // min-width: 0;
+            width: min(94px, calc(20% - 0.4rem));
+
+  width: 94px;
+  height: 42px;
+  border-radius: 20px;
+  font-family: Cairo, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px ) {
+  .installment-btn {
+    width: calc(20% - 0.5rem);
+    font-size: 14px;
+    height: 38px;
+  }
+
+
+}
+    @media ( max-width: 800px) {
+  .installment-btn {
+    width: calc(20% - 0.5rem);
+    font-size: 14px;
+    height: 38px;
+  }
+      }
+
+.installments-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  direction: rtl;
+  justify-content: flex-start;
+}
+
+
+  .cta-btn { transition: background 0.2s, transform 0.1s; }
+        .cta-btn:hover { background: #0f1f3d !important; transform: translateY(-1px); }
       `}</style>
 
       <section id="calculator-section">
@@ -304,31 +400,16 @@ export default function Calculator() {
                 عدد الدفعات
               </div>
 
-              <div
-                style={{
-                  display: "flex",
-                  gap: "0.75rem",
-                  flexDirection: "row",
-                  justifyContent: "flex-start",
-                  flexWrap: "wrap",
-                }}
-              >
+              <div className="installments-row">
                 {INSTALLMENTS.map((n) => (
                   <button
                     key={n}
                     onClick={() => setSelectedInstallments(n)}
                     className="installment-btn"
                     style={{
-                      width: 94.4,
-                      height: 41.9,
-                      borderRadius: "20px",
                       border: selectedInstallments === n ? "none" : "1.5px solid #e2eaf5",
                       background: selectedInstallments === n ? "#00297C" : "#fff",
                       color: selectedInstallments === n ? "#fff" : "#1a2e5a",
-                      fontFamily: "Cairo, sans-serif",
-                      fontWeight: 700,
-                      fontSize: 17,
-                      cursor: "pointer",
                     }}
                     aria-pressed={selectedInstallments === n}
                   >
@@ -398,40 +479,34 @@ export default function Calculator() {
               </button>
             </div>
 
-            {/* Results Grid */}
-            <div
-              style={{
-                display: "grid",
-                gap: "0.25rem",
-                marginBottom: "1.5rem",
-              }}
-            >
-              {[
-                { label: "مبلغ الشراء", value: `${fmt(results.purchasePrice)} ر.س` },
-                { label: "مبلغ البيع", value: `${fmtDecimal(results.salePrice)} ر.س` },
-                { label: "الدفعة الأولى", value: `${fmt(results.firstPayment)} ر.س` },
-              ].map((item, i) => (
+            {/* Results Grid — يتغير حسب عدد الدفعات */}
+            <div style={{ display: "grid", gap: "0.25rem", marginBottom: "1.5rem" }}>
+              {resultRows.map((item, i) => (
                 <div
                   key={item.label}
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0.25rem 0",
-                    borderBottom: i < 2 ? "1px solid #f0f7ff" : "none",
+                    alignItems: "flex-start",
+                    padding: "0.35rem 0",
+                    borderBottom: i < resultRows.length - 1 ? "1px solid #f0f7ff" : "none",
                     fontFamily: "Tajawal, sans-serif",
                     direction: "rtl",
                   }}
                 >
-                  <span style={{ color: "#6b7a99", fontSize: 14 }}>{item.label}</span>
-                  <span style={{ color: "#1a2e5a", fontWeight: 600, fontSize: 14 }}>{item.value}</span>
+                  <div style={{ textAlign: "right" }}>
+                    <span style={{ color: "#6b7a99", fontSize: 14 }}>{item.label}</span>
+                    {"sublabel" in item && item.sublabel && (
+                      <div style={{ fontSize: 11, color: "#9ca3af", marginTop: 2 }}>{item.sublabel}</div>
+                    )}
+                  </div>
+                  <span style={{ color: "#1a2e5a", fontWeight: 600, fontSize: 14, whiteSpace: "nowrap", marginRight: 8 }}>{item.value}</span>
                 </div>
               ))}
             </div>
 
             <div style={{
-   background: 'linear-gradient(135deg, #0b267d 0%, #1a3a7a 25%, #2043a3 50%, #0758a3 62.5%, #1a5f8a 75%, #008d9a 100%)',
-
+              background: 'linear-gradient(135deg, #0b267d 0%, #1a3a7a 25%, #2043a3 50%, #0758a3 62.5%, #1a5f8a 75%, #008d9a 100%)',
               borderRadius: 20,
               padding: "1.25rem 1.5rem",
               marginBottom: "1.25rem",

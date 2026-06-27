@@ -965,7 +965,7 @@ export default function Steps() {
             background: "#fff",
             borderRadius: 24,
             padding: "2rem 2rem",
-            marginTop: "3rem",
+            marginTop: "5rem",
             textAlign: "center",
             boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
             border: "1px solid #e2e8f0",

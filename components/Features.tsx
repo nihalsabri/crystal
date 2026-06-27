@@ -224,7 +224,7 @@ export default function Features() {
           }
           @media (max-width: 640px) {
             .features-grid {
-              grid-template-columns: 1fr 1fr !important;
+              grid-template-columns: 1fr  !important;
               gap: 0.75rem !important;
             }
             .feature-card {

@@ -15,7 +15,7 @@ export default function Footer() {
         }}
       >
         {/* Logo */}
-        <div style={{ marginBottom: "1rem" ,  display: "flex", justifyContent: "space-between", alignItems: "center",
+        <div className="logo-container" style={{ marginBottom: "1rem" ,  display: "flex", justifyContent: "space-between", alignItems: "center",
 }}>
       
           <img src="/crystal-logo-CyiVii2I.webp" alt="Crystal Logo" style={{ width: 120, height: "auto" }} />
@@ -67,7 +67,18 @@ export default function Footer() {
             تمويل متقاعدين | سلفة طوارئ | كريستال للتمويل
           </p>
         </div>
+
+
       </div>
+ {/* Responsive Styles */}
+        <style>{`
+
+          @media (max-width: 640px) {
+            .logo-container { display: flex; flex-direction: column; align-items: center; }
+           
+          }
+        `}</style>
+
     </footer>
   );
 }
